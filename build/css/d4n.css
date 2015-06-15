@@ -1,0 +1,11 @@
+h1 {
+  color: green;
+  font: Helvetica; }
+
+p {
+  color: blue; }
+  p a {
+    color: purple; }
+
+body {
+  padding-top: 50px; }

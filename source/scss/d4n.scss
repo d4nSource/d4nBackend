@@ -1,0 +1,19 @@
+@import "variables";
+
+// main file
+
+h1 {
+	color: $meinefarbe;
+	font: $schrift;
+}
+
+p {
+	color: $farbe2;
+	a {
+		color: $farbe4;
+	}
+}
+
+body {
+  	padding-top: 50px;
+}
