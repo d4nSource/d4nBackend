@@ -1,7 +1,7 @@
 {
-  "name": "d4nMaterial",
+  "name": "d4nSmarthome",
   "version": "0.0.1",
-  "homepage": "https://github.com/d4nSource/d4nMaterial",
+  "homepage": "https://github.com/d4nSource/d4nSmarthome",
   "authors": [
     "Dorian Szekely <dorian.szekely@gmail.com>"
   ],
@@ -30,10 +30,10 @@
     }
   },
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-animate": "~1.4.0",
-    "angular-aria": "~1.4.0",
-    "angular-route": "~1.4.0",
-    "angular-material": "~0.9.6"
+    "angular": "~1.4.1",
+    "angular-animate": "~1.4.1",
+    "angular-aria": "~1.4.1",
+    "angular-route": "~1.4.1",
+    "angular-material": "~0.10.0"
   }
 }
