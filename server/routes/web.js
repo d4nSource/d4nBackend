@@ -1,7 +1,8 @@
-/// <reference path="../typings/node/node.d.ts" />
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/node/node.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
 
 var express = require('express');
+var path = require('path');
 
 module.exports = (function() {
 	'use strict';
@@ -9,7 +10,8 @@ module.exports = (function() {
 	var router = express.Router();
 	
 	router.get('/', function (req, res) {
-		res.send('index');
+//		res.send('index');
+		res.sendFile('index.html', {root: path.join(__dirname, './public')});
 	});
 	return router;
 })();
