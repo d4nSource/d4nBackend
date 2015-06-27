@@ -9,13 +9,11 @@ var jwt = require('jsonwebtoken');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 
-//var routes = require('./app/routes');
-
 var app = express();
 var port = process.env.PORT || 3000;
 
-var api = require('./routes/api');
-var router = require('./routes/web');
+var api = require('./server/routes/api');
+var router = require('./server/routes/web');
 
 // database connection ====================================
 
