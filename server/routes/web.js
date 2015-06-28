@@ -11,7 +11,7 @@ module.exports = (function() {
 	
 	router.get('/', function (req, res) {
 //		res.send('index');
-		res.sendFile('index.html', {root: path.join(__dirname, './public')});
+		res.sendFile('index.html', {root: path.join(__dirname, '../../public')});
 	});
 	return router;
 })();
