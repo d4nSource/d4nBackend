@@ -10,7 +10,6 @@ exports.task = function() {
 
     var typescriptFiles = [
         path.join(config.app, "**/*.ts"),
-//        path.join(config.typings, "**/*.ts")
         ];
 
     return gulp.src(typescriptFiles)

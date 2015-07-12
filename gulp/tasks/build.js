@@ -1,1 +1,1 @@
-exports.dependencies = ['build-resources', 'build-scss', 'build-js', 'build-html'];
+exports.dependencies = ['build-resources', 'build-scss', 'build-js', 'build-ts'];
