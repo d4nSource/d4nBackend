@@ -1,0 +1,10 @@
+{
+    "files": [
+        "typings/node/node.d.ts",
+        "typings/express/express.d.ts",
+        "typings/morgan/morgan.d.ts",
+        "typings/mongoose/mongoose.d.ts",
+        "typings/angularjs/angular.d.ts",
+        "typings/angularjs/angular-route.d.ts"
+    ]
+}

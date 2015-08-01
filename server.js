@@ -1,8 +1,3 @@
-/// <reference path="typings/node/node.d.ts" />
-/// <reference path="typings/express/express.d.ts" />
-/// <reference path="typings/morgan/morgan.d.ts" />
-/// <reference path="typings/mongoose/mongoose.d.ts" />
-
 // set up =================================================
 var express = require('express');
 var jwt = require('jsonwebtoken');
