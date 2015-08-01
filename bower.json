@@ -30,10 +30,11 @@
     }
   },
   "dependencies": {
-    "angular": "~1.4.2",
-    "angular-animate": "~1.4.2",
-    "angular-aria": "~1.4.2",
-    "angular-route": "~1.4.2",
-    "angular-material": "~0.10.0"
+    "angular": "~1.4.3",
+    "angular-animate": "~1.4.3",
+    "angular-aria": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-material": "~0.10.0",
+    "angular-resource": "~1.4.3"
   }
 }
