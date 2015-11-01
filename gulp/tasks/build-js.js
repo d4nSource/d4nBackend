@@ -16,8 +16,15 @@ exports.task = function() {
   var cssFiles = [
     config.bowerFolder + "/angular-material/angular-material.css"
   ];
-  gutil.log("deleting lib folder...");
-  del(jsFiles, cssFiles);
+  
+  
+//  gutil.log("deleting lib folder...");
+  
+  del([path.join(config.outputDir,'lib'), path.join(config.outputDir,'css')]);
+ //   .then(function(deletedPaths){
+ //     gutil.log('deleted files/folders:\n', deletedPaths.join('\n'));
+ //   });
+  
   gutil.log("copy new lib files...");
   
   gulp.src(cssFiles)
