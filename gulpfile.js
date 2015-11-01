@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var fs = require('fs');
+//var sass = require('gulp-sass');
 
 //-- gulp structure and some files taken from angular-material project
 
@@ -17,3 +18,10 @@ fs.readdirSync('./gulp/tasks')
     .filter(function (file) {
       gulp.task(file.name, file.contents.dependencies, file.contents.task);
     });
+ /*   
+gulp.task('sass', function(){
+   gulp.src('source/scss/d4n.scss')
+   .pipe(sass().on('error', sass.logError))
+   .pipe(gulp.dest('source/scss/'));
+});
+*/
