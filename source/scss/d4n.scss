@@ -19,6 +19,18 @@ body {
 }
 */
 
-body {
-	background: $farbe-hintergrund;
+.d4n-background {
+	background-image: url(../img/background/haus1.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.d4n-center {
+    width:100%;
+    min-height:100%;
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
 }

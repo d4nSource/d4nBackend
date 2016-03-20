@@ -2,6 +2,7 @@
 <html lang="en" ng-app="d4nSmarthome">
 <head>
   <title>d4n Smarthome</title>
+  <base href="/">
   <link rel="stylesheet" href="/css/angular-material.css">
   <link rel="stylesheet" href="/css/d4n.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
@@ -9,95 +10,46 @@
 </head>
 <body>
   <body layout="column" ng-controller="AppCtrl">
-    <md-toolbar layout="row" class="md-whiteframe-z3">
-      <div class="md-toolbar-tools">
-        <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
-          <md-icon aria-label="Menu" md-svg-icon="img/icons/menu.svg"></md-icon>
-        </md-button>
-        <h1>d4n Smart Home</h1>
-      </div>
+    <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-z3">
+      <md-button ng-click="toggleSidenav('left')" class="md-icon-button" aria-label="Menu">
+        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+      </md-button>
+      <h2><span>Hans</span></h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Account">
+        <md-icon md-svg-icon="img/icons/account.svg"></md-icon>
+        <md-tooltip>Login/Logoff</md-tooltip>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="More">
+        <md-icon md-svg-icon="img/icons/more.svg"></md-icon>
+        <md-tooltip>Options</md-tooltip>
+      </md-button>
     </md-toolbar>
        
     <div layout="row" flex>
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+          <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">Menue</h1>
+          </md-toolbar>
           <md-list>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                Wohnzimmer
-              </div>
+            <md-list-item>
+              <md-icon class="md-avatar-icon" md-svg-src="img/icons/home2.svg"></md-icon>
+              <a flex href="/#/home2">Haupthaus</a>
             </md-list-item>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                Gästebad
-              </div>
+            <md-list-item>
+              <md-icon class="md-avatar-icon" md-svg-src="img/icons/home.svg"></md-icon>
+              <a flex href="/#/home">Gästehaus</a>
             </md-list-item>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                Küche
-              </div>
+            <md-list-item>
+              <md-icon class="md-avatar-icon" md-svg-src="img/icons/garden.svg"></md-icon> 
+              <a flex href="/#/garden">Garten</a>
             </md-list-item>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                1.OG Bad
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                1.OG Schlafzimmer
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                1.OG Büro Dorian 
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line">
-              <md-icon md-svg-src="img/icons/menu.svg" > 
-              </md-icon>
-              <div class="md-list-item-text">
-                1.OG Büro Silke
-              </div>
-            </md-list-item>
-          </md-list>
-        
+          </md-list>  
         </md-sidenav>
-        <div layout="column" flex id="content">
-            <md-content layout="column" flex class="md-padding">  
-              <md-card>
-              <md-card-content>
-                <h2 class="md-title">Paracosm</h2>
-                <p>
-                  The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                  two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-              </md-card-content>
-              </md-card>
-              <md-card>
-              <md-card-content>
-                <h2 class="md-title">Paracosm</h2>
-                <p>
-                  The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                  two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-              </md-card-content>
-              </md-card>
-            </md-content>
+        <div layout="column" flex id="content" ng-view>
+          
         </div>
     </div>
-
-  
   <script src="/lib/angular.js"></script>
   <script src="/lib/angular-animate.js"></script>
   <script src="/lib/angular-aria.js"></script>
