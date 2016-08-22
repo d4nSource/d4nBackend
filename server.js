@@ -10,6 +10,7 @@ var port = process.env.PORT || 3000;
 
 var api = require('./server/routes/api');
 var router = require('./server/routes/web');
+var messageRoutes = require('./server/routes/messages');
 
 // database connection ====================================
 
@@ -20,8 +21,14 @@ var router = require('./server/routes/web');
 app.use(morgan('dev'));
 
 // Server Route settings ==================================
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use('/api', api);
+app.use('/message', messageRoutes);
 app.use('/', router);
 app.use(express.static('./public'));
 

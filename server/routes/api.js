@@ -1,7 +1,3 @@
-/// <reference path="../typings/node/node.d.ts" />
-/// <reference path="../typings/express/express.d.ts" />
-/// <reference path="../typings/jsonwebtoken/jsonwebtoken.d.ts" />
-
 var express = require('express');
 var jwt = require('jsonwebtoken');
 
