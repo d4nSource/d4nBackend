@@ -1,14 +1,16 @@
 var express = require('express')
+var fs      = require('fs');
 
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-// test route to make sure everything is working (accessed at GET http://localhost:3000/api)
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+router.get('/list', function(req, res) {
+    fs.readFile(__dirname + '/../models/user.json', 'utf8', function (err, data) {
+            console.log(data);
+            res.json(JSON.parse(data));
+    });
+       
 });
-
-// more routes for our API will happen here
 
 module.exports = router;

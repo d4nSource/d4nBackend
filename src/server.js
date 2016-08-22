@@ -1,49 +1,37 @@
-// set up =================================================
-var express = require('express');
-var jwt = require('jsonwebtoken');
-var morgan = require('morgan');
-var mongoose = require('mongoose');
-var path = require('path'); //handle path operation
+// BASE SETUP
+// =============================================================================
 
-var app = express();
-var port = process.env.PORT || 3000;
+// call the packages we need
+var express    = require('express');        // call express
+var server        = express();                 // define our app using express
+var bodyParser = require('body-parser');
+//include routes defintions
+var changelog   = require('./routes/changelog');
+var router      = require('./routes/api');
+var user        = require('./routes/user');
 
-var api = require('./routes/api');
-var router = require('./routes/web');
-var messageRoutes = require('./routes/messages');
+server.use(bodyParser.json());
 
-// database connection ====================================
-
-// mongoose.connect('mongodb://localhost/material');
-
-// app Setup ==============================================
-
-app.use(morgan('dev'));
-
-// Server Route settings ==================================
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+// Middleware
+server.use(function (req, res, next) {
+  // allow origin for demo purposes
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   next();
 });
 
-app.use('/api', api);
-app.use('/message', messageRoutes);
-app.use('/', router);
-app.use(express.static('./public'));
+var port = process.env.PORT || 3000;        // set our port
 
-app.use(function(req, res){
-	res.status(404);
-//	res.send('404: page not found');
-	res.sendFile('404.html', {root: path.join(__dirname, './views')});
-});
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+server.use('/api', router);
+server.use('/changelog', changelog);
+server.use('/user', user);
 
-app.use(function(req, res, next){
-	res.status(500);
-	res.send('500: Internal Server Error');
-});
-
-app.listen(port);
-console.log("App listening on port " + port);
-
-module.exports = app;
+// START THE SERVER
+// =============================================================================
+server.listen(port);
+console.log('API Server runs on port: ' + port);
