@@ -1,7 +1,7 @@
 {
   "name": "D4nBackend",
   "version": "1.0.0",
-  "description": "d4nMaterial Backend Server",
+  "description": "Backend Server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
