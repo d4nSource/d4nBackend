@@ -8,9 +8,9 @@ var path = require('path'); //handle path operation
 var app = express();
 var port = process.env.PORT || 3000;
 
-var api = require('./server/routes/api');
-var router = require('./server/routes/web');
-var messageRoutes = require('./server/routes/messages');
+var api = require('./routes/api');
+var router = require('./routes/web');
+var messageRoutes = require('./routes/messages');
 
 // database connection ====================================
 
@@ -35,7 +35,7 @@ app.use(express.static('./public'));
 app.use(function(req, res){
 	res.status(404);
 //	res.send('404: page not found');
-	res.sendFile('404.html', {root: path.join(__dirname, './server/views')});
+	res.sendFile('404.html', {root: path.join(__dirname, './views')});
 });
 
 app.use(function(req, res, next){
