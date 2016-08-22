@@ -1,5 +1,5 @@
 {
-  "name": "d4nMaterial.server",
+  "name": "D4nBackend",
   "version": "1.0.0",
   "description": "d4nMaterial Backend Server",
   "main": "index.js",
@@ -9,32 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/d4nSource/d4nMaterial.server.git"
+    "url": "https://github.com/d4nSource/d4nBackend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/d4nSource/d4nMaterial.server/issues"
+    "url": "https://github.com/d4nSource/d4nBackend/issues"
   },
-  "homepage": "https://github.com/d4nSource/d4nMaterial.server",
+  "homepage": "https://github.com/d4nSource/d4nBackend",
   "dependencies": {
-    "express": "^4.12.4",
+    "express": "^4.14.0",
     "fs": "0.0.2",
-    "jsonwebtoken": "^5.0.1",
-    "mongoose": "^4.0.5",
-    "morgan": "^1.5.3",
-    "node-windows": "^0.1.7"
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.5.9",
+    "morgan": "^1.7.0",
+    "node-windows": "^0.1.11"
   },
   "devDependencies": {
-    "del": "^1.2.0",
-    "fs": "0.0.2",
-    "gulp": "^3.8.11",
-    "gulp-inject": "^1.2.0",
-    "gulp-sass": "^2.0.1",
-    "gulp-sync": "^0.1.4",
-    "gulp-typescript": "^2.7.5",
-    "gulp-util": "^3.0.4",
-    "main-bower-files": "^2.8.0",
-    "path": "^0.11.14"
   }
 }
