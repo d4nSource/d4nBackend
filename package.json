@@ -18,13 +18,9 @@
   },
   "homepage": "https://github.com/d4nSource/d4nBackend",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "fs": "0.0.2",
-    "jsonwebtoken": "^7.1.9",
-    "mongoose": "^4.5.9",
-    "morgan": "^1.7.0",
-    "node-windows": "^0.1.11"
+    "fs": "0.0.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
