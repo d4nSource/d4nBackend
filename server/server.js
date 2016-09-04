@@ -4,11 +4,14 @@
 var express     = require('express');        // call express
 var server      = express();                 // define our app using express
 var bodyParser  = require('body-parser');    // handle HTTP header informations
+var mongoose    = require('mongoose');       // handle Mongoose DB access
 
 //include routes defintions
 var changelog   = require('./routes/changelog');
 var router      = require('./routes/api');
 var user        = require('./routes/user');
+
+mongoose.connect('localhost:27017/D4nDatabase');        // connect to the database
 
 server.use(bodyParser.json());                          // handles JSON data
 server.use(bodyParser.urlencoded({ extended: false}));  // handles GET/POST like forms
