@@ -9,7 +9,8 @@ var mongoose    = require('mongoose');       // handle Mongoose DB access
 //include routes defintions
 var changelog   = require('./routes/changelog');
 var router      = require('./routes/api');
-var user        = require('./routes/user');
+var user        = require('./routes/users');
+var message    = require('./routes/messages');
 
 mongoose.connect('localhost:27017/D4nDatabase');        // connect to the database
 
@@ -35,6 +36,7 @@ var port = process.env.PORT || 3000;        // set our port to 3000 of no env va
 server.use('/api', router);
 server.use('/changelog', changelog);
 server.use('/user', user);
+server.use('/message', message);
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next){
