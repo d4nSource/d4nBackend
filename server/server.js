@@ -33,6 +33,13 @@ server.use('/api', router);
 server.use('/changelog', changelog);
 server.use('/user', user);
 
+// catch 404 and forward to error handler
+server.use(function(req, res, next){
+  var err = new Error('Not found');
+  err.status = 404;
+  next(err);
+});
+
 // START THE SERVER
 // =============================================================================
 server.listen(port);
