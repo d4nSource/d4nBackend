@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/server.js"
+    "start": "npm run serve:prod",
+    "serve:dev": "set PORT=3001 && node ./server/server.js",
+    "serve:prod": "set PORT=3000 && node ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/d4nSource/d4nBackend",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "fs": "0.0.2",
     "jsonwebtoken": "^7.1.9",
@@ -25,6 +28,5 @@
     "morgan": "^1.7.0",
     "node-windows": "^0.1.11"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
