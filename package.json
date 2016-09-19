@@ -8,7 +8,7 @@
     "start": "npm run serve:prod",
     "serve:dev": "set PORT=3001 && node ./server/server.js",
     "serve:prod": "set PORT=3000 && node ./server/server.js",
-    "database": "mongod dbpath ./database/"
+    "database": "mongod --dbpath ./database/"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,8 @@
     "mongoose": "^4.6.0",
     "mongoose-unique-validator": "^1.0.2",
     "morgan": "^1.7.0",
-    "node-windows": "^0.1.11"
+    "node-windows": "^0.1.11",
+    "password-hash": "^1.2.2"
   },
   "devDependencies": {}
 }

@@ -3,6 +3,7 @@
     "body-parser": "registry:dt/body-parser#0.0.0+20160619023215",
     "express": "registry:dt/express#4.0.0+20160708185218",
     "mongoose": "registry:dt/mongoose#4.5.9+20160826204928",
-    "node": "registry:dt/node#6.0.0+20160831021119"
+    "node": "registry:dt/node#6.0.0+20160831021119",
+    "password-hash": "registry:dt/password-hash#1.2.0+20160330090212"
   }
 }
