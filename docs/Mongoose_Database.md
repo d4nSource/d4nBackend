@@ -1,3 +1,0 @@
-- install mongo db
-- add bin folder to PATH env variable
-- create a database folder inside your project to store the database
