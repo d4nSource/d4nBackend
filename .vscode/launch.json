@@ -5,7 +5,7 @@
             "name": "Starten",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/index.js",
+            "program": "${workspaceRoot}/server/server.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
