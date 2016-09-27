@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
                 error: err
             });
         }
-//        console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
+//      console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
         users[row.id] = {"firstname": row.firstname, "lastname": row.lastname, "email": row.email };
     });
     //    db.run("INSERT into users VALUES ('2', 'Max', 'Mustermann', 'geheim', 'test@Mustermann.com')");
