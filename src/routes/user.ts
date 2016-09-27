@@ -16,8 +16,8 @@ router.get('/', function(req: any, res: any, next: any){
     var users: any = [];
 
     db.each("SELECT id, firstname, lastname, email FROM users", function(err: any, row: any) {
-//      console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
-    users[row.id] = {"firstname": row.firstname, "lastname": row.lastname, "email": row.email};
+        console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
+        users[row.id] = {"firstname": row.firstname, "lastname": row.lastname, "email": row.email};
     });
 
 //    db.run("INSERT into users VALUES ('2', 'Max', 'Mustermann', 'geheim', 'test@Mustermann.com')");

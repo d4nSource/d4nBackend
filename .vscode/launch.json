@@ -5,7 +5,7 @@
             "name": "Starten",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/server/server.js",
+            "program": "${workspaceRoot}/src/server.ts",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
@@ -17,9 +17,9 @@
             "env": {
                 "NODE_ENV": "development"
             },
-            "externalConsole": false,
-            "sourceMaps": false,
-            "outDir": null
+            "console": "internalConsole",
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/server/"
         },
         {
             "name": "Anfügen",
