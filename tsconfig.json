@@ -1,11 +1,15 @@
 {
     "compilerOptions": {
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "target": "ES5",
-        "module": "amd",
+        "module": "commonjs",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
         "outDir": "server",
         "sourceMap": true,
-        "sourceRoot": "src"
-    }
+        "sourceRoot": "./src"
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

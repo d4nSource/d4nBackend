@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express');
 var sqlite3 = require('sqlite3').verbose();
 var passwordHash = require('password-hash');
@@ -8,12 +10,12 @@ var router = express.Router();            // get an instance of the express Rout
 var db = new sqlite3.Database('./database/database.sqlite3');
 
 // get all users
-router.get('/', function(req, res, next){
+router.get('/', function(req: any, res: any, next: any){
 
 //    var users = [];
-    var users = [];
+    var users: any = [];
 
-    db.each("SELECT id, firstname, lastname, email FROM users", function(err, row) {
+    db.each("SELECT id, firstname, lastname, email FROM users", function(err: any, row: any) {
 //      console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
     users[row.id] = {"firstname": row.firstname, "lastname": row.lastname, "email": row.email};
     });
@@ -55,4 +57,4 @@ router.get('/list', function(req, res) {
 });
 */
 
-module.exports = router;
+export = router;

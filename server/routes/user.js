@@ -7,14 +7,21 @@ var db = new sqlite3.Database('./database/database.sqlite3');
 // get all users
 router.get('/', function (req, res, next) {
     //    var users = [];
-    var users = [];
+    var users = ["1", "2"];
     db.each("SELECT id, firstname, lastname, email FROM users", function (err, row) {
-        //      console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
-        users[row.id] = { "firstname": row.firstname, "lastname": row.lastname, "email": row.email };
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occured',
+                error: err
+            });
+        }
+//        console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
+        users[row.id] = {"firstname": row.firstname, "lastname": row.lastname, "email": row.email };
     });
     //    db.run("INSERT into users VALUES ('2', 'Max', 'Mustermann', 'geheim', 'test@Mustermann.com')");
+//    console.log(users[1].firstname)
+    res.json(users);
     db.close;
-    res.send(users[1]);
 });
 /* create a new user
 router.post('/', function(req, res, next){

@@ -1,5 +1,5 @@
 var  User = {
-    id: number,
+    id: Number,
     firstName: String,
     lastName: String,
     password: String,
