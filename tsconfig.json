@@ -5,7 +5,7 @@
         "noEmitOnError": true,
         "noImplicitAny": true,
         "experimentalDecorators": true,
-        "outDir": "server",
+        "outDir": "./server",
         "sourceMap": true,
         "sourceRoot": "./src"
     },
