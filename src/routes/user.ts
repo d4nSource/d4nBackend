@@ -12,18 +12,17 @@ var db = new sqlite3.Database('./database/database.sqlite3');
 // get all users
 router.get('/', function(req: any, res: any, next: any){
 
-//    var users = [];
-    var users: any = [];
+    var users: any;
 
-    db.each("SELECT id, firstname, lastname, email FROM users", function(err: any, row: any) {
-        console.log(row.id + " - " + row.firstname + " " + row.lastname + "(" + row.email + ")");
-        users[row.id] = {"firstname": row.firstname, "lastname": row.lastname, "email": row.email};
+    db.each("SELECT id, firstname, lastname, email FROM users where id=0", function(err: any, row: any){
+        //users= {"firstname": row.firstname, "lastname": row.lastname, "email": row.email};
+        res.send(row.firstname);
     });
 
 //    db.run("INSERT into users VALUES ('2', 'Max', 'Mustermann', 'geheim', 'test@Mustermann.com')");
     db.close;
 
-    res.send(users[1]);
+    
 });
 
 /* create a new user
