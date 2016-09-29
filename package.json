@@ -34,6 +34,9 @@
     "@types/body-parser": "0.0.33",
     "@types/express": "^4.0.33",
     "@types/node": "^6.0.41",
-    "@types/sqlite3": "^2.2.31"
+    "@types/sqlite3": "^2.2.31",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.0.1",
+    "typescript": "^2.0.3"
   }
 }
