@@ -5,12 +5,11 @@
         "noEmitOnError": true,
         "noImplicitAny": true,
         "experimentalDecorators": true,
-        "outDir": "./dist",
+        "outDir": "../dist",
         "sourceMap": true,
-        "sourceRoot": "./src"
+        "sourceRoot": "."
     },
     "exclude": [
-        "node_modules/**/*",
-        "tools/**/*"        
+        "../node_modules/**/*"
     ]
 }

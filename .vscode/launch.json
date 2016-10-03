@@ -19,7 +19,7 @@
             },
             "console": "internalConsole",
             "sourceMaps": true,
-            "outDir": "${workspaceRoot}/server/"
+            "outDir": "${workspaceRoot}/dist/"
         },
         {
             "name": "Anfügen",

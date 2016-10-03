@@ -44,4 +44,4 @@ Temporary Items
 
 # own folder
 node_modules
-typings
+dist
