@@ -1,5 +1,10 @@
 # Changelog File
 
+## Alpha 2
+
+* [+] API: list all users
+* [+] DOCS: added API documentation file
+* [+] DOCS: README.md update
 
 ## Alpha 1
 

@@ -1,49 +1,40 @@
-// BASE SETUP
-// =============================================================================
-"use strict";
+# table of content
 
-import * as express from "express";
-import * as bodyParser from "body-parser";
-import * as indexRoute from "./routes/user";
+* [Prerequisite](#prerequisite)
+* [Installation](#installation)
+* [Folder Structure](#folder-structure)
 
 
-let server = express();
+## Prerequisite
 
-// call the packages we need
-//var express    = require('express');        // call express
-//var server     = express();                 // define our app using express
-//var bodyParser = require('body-parser');
-//include routes defintions
-var user       = require('./routes/user');
+You must have installed `npm` (version 3+) and `node` (version 6+)
 
-server.use(bodyParser.json());
+## Installation 
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-// Middleware
-server.use(function (req, res, next) {
-  // allow origin for demo purposes
-  // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  next();
-});
+To install the server you install all packages via
 
-var port = process.env.PORT || 3000;        // set our port
+```bash
+npm install
+```
+To execute the server two environments are preset and can be executed via npm commands:
 
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
-server.use('/user', user);
+```bash
+npm start           (use port of environment variable PORT, with a fallback to 3000)
+npm run serve:prod  (use preset port 3000)
+npm run serve:dev   (use preset port 3001)
+```
 
-// catch 404 and forward to error handler
-server.use(function(req, res, next){
-  var err = new Error('Not found');
-    err.status = 404;
-    next(err);
-});
+In production mode its recommended to use a service/demon to manage the node process, like PM2.
 
-// START THE SERVER
-// =============================================================================
-server.listen(port);
-console.log('API Server runs on port: ' + port);
+## Folder Structure
+
+| Folder            | description
+|---                |---
+| .vscode           | VS Code configuration files
+| database          | SQLite database
+| dist              | compiled JS code used to execute the server
+| docs              | documentation
+| node_modules      | node packages
+| src               | typescript source code
+| tools             | additional tools
+| tools/gulp        | gulp configuration files and tasks
