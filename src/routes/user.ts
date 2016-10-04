@@ -43,15 +43,7 @@ router.post('/', function(req: any, res: any, next: any){
 // get all users available
 router.get('/all', function(req: any, res: any) {
     db.all('SELECT id, firstname, lastname, email FROM users', function(err: string, rows: Array<any>){
-        console.log(rows.length)
-        var users: any;
-        users = {
-                "id": rows[0].id,
-                "firstname": rows[0].firstname,
-                "lastname": rows[0].lastname,
-                "email": rows[0].email        
-        };
-        res.status(200).json(users);
+        res.status(200).json(rows);
     }); 
 });
 
