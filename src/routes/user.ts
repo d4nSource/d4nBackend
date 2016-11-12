@@ -51,11 +51,11 @@ router.post('/', function(req: any, res: any, next: any){
 
 // signin a user
 router.post('/signin', function(req: any, res: any, next: any){
-    
+
     console.log(JSON.stringify(req.body));
 
     if (db_status && req.body.email) {
-        db.get("SELECT id, firstname, lastname, email, password FROM users where email='"+ req.body.email +"'", function(err: any, row: any){
+        db.get("SELECT id, nickname, firstname, lastname, email, password FROM users where email='"+ req.body.email +"'", function(err: any, row: any){
             if (row.email) {
                 if (!bcrypt.compareSync(req.body.password, row.password)){
                     return res.status(401).json({
@@ -63,10 +63,10 @@ router.post('/signin', function(req: any, res: any, next: any){
                     "error": "password is wrong"
                     });
                 } else {
-                   var token = jwt.sign({user: "blablabla" }, 'secretkey', {expiresIn: 7200});
+                    let token = jwt.sign({user: row.nickname }, 'secretkey', {expiresIn: 7200});
                     res.status(200).json({
                         "message": "successful logged in", 
-                        "token": 'test', 
+                        "token": token, 
                         "user_id": "1"});
                 }
             } else {
