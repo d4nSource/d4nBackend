@@ -30,11 +30,11 @@ router.post('/signin', function(req: any, res: any, next: any){
                     "error": "password is wrong"
                     });
                 } else {
-                    let token = jwt.sign({user: row.nickname }, 'secretkey', {expiresIn: 7200});
+                    let token = jwt.sign({user: row.id }, 'secretkey', {expiresIn: 7200});
                     res.status(200).json({
                         "message": "successful logged in", 
-                        "token": token, 
-                        "user_id": "1"});
+                        "token": token 
+                    });
                 }
             } else {
                 return res.status(401).json({
