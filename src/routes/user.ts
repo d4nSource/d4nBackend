@@ -16,42 +16,8 @@ var db = new sqlite3.Database('./database/database.sqlite3', function(err: Strin
     }
 });
 
-// get a single user
-router.get('/', function(req: any, res: any, next: any){
-    if (db_status) {
-        db.get("SELECT id, firstname, lastname, email FROM users where id=3", function(err: any, row: any){
-            res.status(200).json({
-                "firstname": row.firstname, 
-                "lastname": row.lastname, 
-                "email": row.email});
-        });
-        db.close;   
-    } else {
-        res.status(500).json({
-                "status": "error",
-                "text": "error opening the datbase"
-        });
-    }
-});
-
-// create a new user
-router.post('/', function(req: any, res: any, next: any){
-    if (db_status) {
-        db.run("INSERT into users (nickname, firstname, lastname, password, email) VALUES ('"+ req.body.nickname +"','"+ req.body.firstname +"', '"+ req.body.lastname +"', '"+ bcrypt.hashSync(req.body.password, 10) +"', '"+ req.body.email +"')");
-        res.status(201).json({
-            title: 'User created'
-        });
-    } else {
-        res.status(500).json({
-                "status": "error",
-                "text": "error opening the database"
-        });
-    }
-});
-
 // signin a user
 router.post('/signin', function(req: any, res: any, next: any){
-
     console.log(JSON.stringify(req.body));
 
     if (db_status && req.body.email) {
@@ -83,7 +49,56 @@ router.post('/signin', function(req: any, res: any, next: any){
                     "error": "User could not be found or password is wrong"
             });
     } 
-})
+});
+
+// below this line, only authenticated users are able to access this route
+router.use('/new', function(req: any, res: any, next: any){
+    jwt.verify(req.query.token, 'secretkey', function(err: any, decoded: any) {
+        console.log('not authenticated');
+        if (err) {
+            return res.status(401).json({
+                title: 'not authenticated',
+                error: err
+            });
+        }
+        next();
+    })
+});
+
+// get a single user
+router.get('/', function(req: any, res: any, next: any){
+    if (db_status) {
+        db.get("SELECT id, firstname, lastname, email FROM users where id=3", function(err: any, row: any){
+            res.status(200).json({
+                "firstname": row.firstname, 
+                "lastname": row.lastname, 
+                "email": row.email});
+        });
+        db.close;   
+    } else {
+        res.status(500).json({
+                "status": "error",
+                "text": "error opening the datbase"
+        });
+    }
+});
+
+// create a new user
+router.post('/new', function(req: any, res: any, next: any){
+    if (db_status) {
+        db.run("INSERT into users (nickname, firstname, lastname, password, email) VALUES ('"+ req.body.nickname +"','"+ req.body.firstname +"', '"+ req.body.lastname +"', '"+ bcrypt.hashSync(req.body.password, 10) +"', '"+ req.body.email +"')");
+        res.status(201).json({
+            title: 'User created'
+        });
+    } else {
+        res.status(500).json({
+                "status": "error",
+                "text": "error opening the database"
+        });
+    }
+});
+
+
 
 
 // get all users available
