@@ -29,6 +29,7 @@
     "express": "^4.14.0",
     "fs": "0.0.2",
     "jsonwebtoken": "^7.1.9",
+    "node-uuid": "^1.4.7",
     "password-hash": "^1.2.2",
     "sqlite3": "^3.1.4"
   },
@@ -39,6 +40,7 @@
     "@types/gulp": "^3.8.32",
     "@types/jsonwebtoken": "^7.1.33",
     "@types/node": "^6.0.41",
+    "@types/node-uuid": "0.0.28",
     "@types/sqlite3": "^2.2.31",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",

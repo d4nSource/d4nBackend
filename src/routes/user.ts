@@ -3,6 +3,7 @@
 var express = require('express');
 var sqlite3 = require('sqlite3').verbose();
 var bcrypt = require('bcryptjs');
+var uuid = require('node-uuid');
 var jwt = require('jsonwebtoken');
 
 var router = express.Router();            // get an instance of the express Router
@@ -86,7 +87,8 @@ router.get('/', function(req: any, res: any, next: any){
 // create a new user
 router.post('/new', function(req: any, res: any, next: any){
     if (db_status) {
-        db.run("INSERT into users (nickname, firstname, lastname, password, email) VALUES ('"+ req.body.nickname +"','"+ req.body.firstname +"', '"+ req.body.lastname +"', '"+ bcrypt.hashSync(req.body.password, 10) +"', '"+ req.body.email +"')");
+        let unique_uid = uuid.v1(); 
+        db.run("INSERT into users (id, nickname, firstname, lastname, password, email) VALUES ('"+ unique_uid +"', '"+ req.body.nickname +"','"+ req.body.firstname +"', '"+ req.body.lastname +"', '"+ bcrypt.hashSync(req.body.password, 10) +"', '"+ req.body.email +"')");
         res.status(201).json({
             title: 'User created'
         });
