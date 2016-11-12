@@ -5,14 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "start": "npm run serve:prod",
     "serve:dev": "set PORT=3001 && node ./server/server.js",
     "serve:prod": "set PORT=3000 && node ./server/server.js",
     "database": "mongod --dbpath ./database/"
-=======
-    "start": "node ./src/server.js"
->>>>>>> fd29ce20027b6a356976bb04846ca66427b63ab5
   },
   "repository": {
     "type": "git",
@@ -27,7 +23,6 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-<<<<<<< HEAD
     "fs": "0.0.2",
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.0",
@@ -35,9 +30,6 @@
     "morgan": "^1.7.0",
     "node-windows": "^0.1.11",
     "password-hash": "^1.2.2"
-=======
-    "fs": "0.0.2"
->>>>>>> fd29ce20027b6a356976bb04846ca66427b63ab5
   },
   "devDependencies": {}
 }
