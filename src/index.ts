@@ -13,6 +13,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+// validates ports to be valid
 function normalizePort(val: number|string): number|string|boolean {
   let port: number = (typeof val === 'string') ? parseInt(val, 10) : val;
   if (isNaN(port)) return val;
@@ -20,6 +21,7 @@ function normalizePort(val: number|string): number|string|boolean {
   else return false;
 }
 
+//catches known errors during server start
 function onError(error: NodeJS.ErrnoException): void {
   if (error.syscall !== 'listen') throw error;
   let bind = (typeof port === 'string') ? 'Pipe ' + port : 'Port ' + port;
@@ -36,6 +38,7 @@ function onError(error: NodeJS.ErrnoException): void {
       throw error;
   }
 }
+
 
 function onListening(): void {
   let addr = server.address();
