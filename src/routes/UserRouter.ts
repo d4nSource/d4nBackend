@@ -1,4 +1,5 @@
 import {Router, Request, Response, NextFunction} from 'express';
+const Heroes = require('../data');
 
 export class UserRouter{
     router: Router
@@ -13,9 +14,30 @@ export class UserRouter{
         res.send(JSON.stringify('get All'));
     }
 
+    public getOne(req: Request, res: Response, next: NextFunction) {
+    let query = parseInt(req.params.id);
+    let hero = Heroes.find(hero => hero.id === query);
+    if (hero) {
+        res.status(200)
+        .send({
+            message: 'Success',
+            status: res.status,
+            hero
+        });
+    }
+    else {
+        res.status(404)
+        .send({
+            message: 'No hero found with the given id.',
+            status: res.status
+        });
+    }
+    }
+
     //configure all APIs calls
     init() {
         this.router.get('/', this.getALL);
+        this.router.get('/:id', this.getOne);
     }
 }
 
