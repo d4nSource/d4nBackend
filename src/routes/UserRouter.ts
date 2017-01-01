@@ -16,7 +16,7 @@ export class UserRouter{
 
     public getOne(req: Request, res: Response, next: NextFunction) {
     let query = parseInt(req.params.id);
-    let hero = Heroes.find(hero => hero.id === query);
+    let hero = Heroes.find((hero: any ) => hero.id === query);
     if (hero) {
         res.status(200)
         .send({

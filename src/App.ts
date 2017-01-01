@@ -22,6 +22,12 @@ class App {
       this.express.use(logger('dev'));
       this.express.use(bodyParser.json());
       this.express.use(bodyParser.urlencoded({extended: false}));
+      this.express.use((req: express.Request, res: express.Response, next: express.NextFunction ) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        next();
+      })
   }
 
   //Configure API endpoints
