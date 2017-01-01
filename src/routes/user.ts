@@ -1,9 +1,7 @@
-"use strict";
-
 var express = require('express');
 var sqlite3 = require('sqlite3').verbose();
 var bcrypt = require('bcryptjs');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 var jwt = require('jsonwebtoken');
 
 var router = express.Router();            // get an instance of the express Router
